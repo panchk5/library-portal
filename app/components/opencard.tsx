@@ -6,7 +6,7 @@ interface OpenCardProps {
     description: string;
     hours: string;
 }
-const OpenCard: React.FC<OpenCardProps> = () => {
+const OpenCard: React.FC = () => {
     return (
         <div className='rounded-lg bg-white text-black p-2'>
             <h2 className='text-xl font-bold tracking-tighter pl-1'>H.G. Thode Library of Science & Engineering</h2>

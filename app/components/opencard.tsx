@@ -9,7 +9,7 @@ interface OpenCardProps {
 const OpenCard: React.FC = () => {
     return (
         <div className='rounded-lg bg-white text-black p-2'>
-            <h2 className='text-xl font-bold tracking-tighter pl-1'>H.G. Thode Library of Science & Engineering</h2>
+            <h2 className='text-xl font-bold font-sans tracking-tighter pl-1'>H.G. Thode Library of Science & Engineering</h2>
             <p className='pl-1'>Main engineering library</p>
             <div className='flex flex-row gap-1'>
                 {/* <div className='flex gap-1'>
@@ -23,6 +23,7 @@ const OpenCard: React.FC = () => {
                 <Tab title='3D Printer' />
                 <Tab title='Study Rooms' />
             </div>
+            <h2 className='text-lg font-bold tracking-tighter pl-1'>Location </h2>
             <h2 className='text-lg font-bold tracking-tighter pl-1'>Hours: </h2>
             <h2 className='text-lg font-bold tracking-tighter pl-1'>Capacity </h2>
         </div>

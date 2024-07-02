@@ -5,10 +5,10 @@ import OpenCard from "./components/opencard";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-gray-900">
-      <div className="z-10 items-center font-mono text-sm lg:flex">
+    <main className="static flex min-h-screen flex-col items-center justify-between p-24 bg-hero-pattern bg-cover">
+      <div className="z-10 items-center font-mono text-sm lg:flex backdrop-blur-sm bg-white/30 rounded-lg p-2">
         <div className="flex flex-col items-center justify-center ">
-          <h1 className="text-4xl font-bold text-center">
+          <h1 className="text-4xl font-bold text-center font-sans">
             Welcome to McMaster Libraries
           </h1>
           <p className="text-center">
@@ -21,6 +21,9 @@ export default function Home() {
           </div>
           
         </div>
+      </div>
+      <div className="absolute bottom-0 left-0">
+        <p>Gif credits: TorinoGT</p>
       </div>
     </main>
   );

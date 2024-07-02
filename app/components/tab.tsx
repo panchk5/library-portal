@@ -6,7 +6,7 @@ interface TabProps {
 
 const Tab: React.FC<TabProps> = ({ title }) => {
     return (
-        <div className="bg-gray-500 rounded-full text-white px-2">
+        <div className="bg-gray-500 rounded-full text-white font-sans px-2">
            {title}
         </div>
     );

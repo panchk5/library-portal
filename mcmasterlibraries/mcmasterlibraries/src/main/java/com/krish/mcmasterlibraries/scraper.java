@@ -29,13 +29,13 @@ public class scraper {
     private WebDriver driver;
     
     public scraper(){
-        ChromeOptions opt = new ChromeOptions();
-        opt.addArguments("--headless=new");
-        driver = new ChromeDriver(opt);
+        driver = new ChromeDriver();
         libraryCapacity = new HashMap<>();
         libraryHours = new HashMap<>();
         scrapelibrarycapacity();
         scrapeHealthLibraryHours();
+        logger.info("adding library hours");
+        scrapeLibraryHours();
         driver.close();
         driver.quit();
     }
@@ -87,16 +87,30 @@ public class scraper {
     public void scrapeLibraryHours(){
         try {
             
-            driver.get("https://hsl.mcmaster.ca/about-us/contact/hours/");
+            driver.get("https://library.mcmaster.ca/hours");
             String page = driver.getPageSource();
-    
-            Document healthLibrary = Jsoup.parse(page);
+            
+            Document library = Jsoup.parse(page);
 
-            Elements hours = healthLibrary.getElementsByClass("s-lc-whw-today");
+            org.jsoup.nodes.Element[] hours = new org.jsoup.nodes.Element[5];
+
+            org.jsoup.nodes.Element mills = library.getElementsByClass("s-lc-w-times s-lc-w-lid-6398 s-lc-w-location").first();
+            hours[0] = mills;
+            org.jsoup.nodes.Element lyons = library.getElementsByClass("s-lc-w-times s-lc-w-lid-6404 s-lc-w-department").first();
+            hours[1] = lyons;
+            org.jsoup.nodes.Element commons = library.getElementsByClass("s-lc-w-times s-lc-w-lid-6400 s-lc-w-department").first();
+            hours[2] = commons;
+            org.jsoup.nodes.Element thode = library.getElementsByClass("s-lc-w-times s-lc-w-lid-6395 s-lc-w-location").first();
+            hours[3] = thode;
+            org.jsoup.nodes.Element makerspace = library.getElementsByClass("s-lc-w-times s-lc-w-lid-6396 s-lc-w-department").first();
+            hours[4] = makerspace;
+
             for (org.jsoup.nodes.Element hour : hours){
-                String time = hour.select("span").text();
-                libraryHours.put("Health Science", time);
+                libraryHours.put(hour.select("a").text(), hour.select("span").text());
             }
+            
+            
+            
     
         } catch (Exception e) {
    

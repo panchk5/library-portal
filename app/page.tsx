@@ -1,7 +1,8 @@
 import { Grid } from "@mui/material";
 import Image from "next/image";
 import Item from "@mui/material/Grid";
-import OpenCard from "./components/opencard";
+import ThodeCard from "./components/thodecard";
+import MillsCard from "./components/millscard";
 
 export default function Home() {
   return (
@@ -16,8 +17,8 @@ export default function Home() {
           </p>
           
           <div className="grid grid-cols-1 p-1 mt-4 sm:mt-8 gap-3 w-max h-max md:grid-cols-2" style={{ width: "100%" }}>
-            <OpenCard />
-            <OpenCard />
+            <ThodeCard />
+            <MillsCard />
           </div>
           
         </div>

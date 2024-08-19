@@ -13,18 +13,24 @@ export default function Home() {
             Welcome to McMaster Libraries
           </h1>
           <p className="text-center">
-            Central hub for all library resources at McMaster University (student hub).
+            Central hub for all library resources at McMaster University
+            (student hub).
           </p>
-          
-          <div className="grid grid-cols-1 p-1 mt-4 sm:mt-8 gap-3 w-max h-max md:grid-cols-2" style={{ width: "100%" }}>
+
+          <div
+            className="grid grid-cols-1 p-1 mt-4 sm:mt-8 gap-3 w-max h-max md:grid-cols-2"
+            style={{ width: "100%" }}
+          >
             <ThodeCard />
             <MillsCard />
           </div>
-          
         </div>
       </div>
       <div className="absolute bottom-0 left-0">
         <p>Gif credits: TorinoGT</p>
+        <p className="font-bold text-red-700">
+          Notice: Only frontend implemented
+        </p>
       </div>
     </main>
   );

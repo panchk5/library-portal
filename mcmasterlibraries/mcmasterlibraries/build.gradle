@@ -25,14 +25,16 @@ repositories {
 
 dependencies {
 	// implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-	implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.1.1'
+	implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.23.0'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.jsoup:jsoup:1.17.2'
+	implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.0.3'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
 }
 
 tasks.named('test') {

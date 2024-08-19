@@ -14,9 +14,7 @@ import org.jsoup.select.Elements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-
-
+// import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class scraper {
@@ -25,19 +23,27 @@ public class scraper {
     private ArrayList<String> closedLibrary;
     private static final Logger logger = Logger.getLogger(scraper.class.getName());
     private Document document;
-    
+    private ChromeOptions options;
     private WebDriver driver;
     
     public scraper(){
-        driver = new ChromeDriver();
+        // WebDriverManager.chromedriver().setup();
+        options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--ignore-ssl-errors=yes");
+        options.addArguments("--ignore-certificate-errors");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--remote-allow-origins=*");
+
+        driver = new ChromeDriver(options);
         libraryCapacity = new HashMap<>();
         libraryHours = new HashMap<>();
         scrapelibrarycapacity();
         scrapeHealthLibraryHours();
         logger.info("adding library hours");
         scrapeLibraryHours();
-        driver.close();
-        driver.quit();
     }
     public void scrapelibrarycapacity(){
         // Log a message
@@ -122,6 +128,11 @@ public class scraper {
         return libraryCapacity;
     }
 
+    public Integer[] getThodeCapacity(){
+        return new Integer[]{libraryCapacity.get("Thode Library"), libraryCapacity.get("Thode 2nd Floor Study Space")};
+    }
+
+    
     public HashMap<String, String> getLibraryHours(){
         return libraryHours;
     }

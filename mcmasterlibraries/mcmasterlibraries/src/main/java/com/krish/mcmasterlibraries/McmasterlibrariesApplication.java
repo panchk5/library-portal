@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.krish.mcmasterlibraries.scraper;
 
+
 @SpringBootApplication
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -26,6 +27,13 @@ public class McmasterlibrariesApplication {
 		HashMap<String, Integer> capacity = scraperClient.getLibraryCapacity();
 		return capacity;
 	}
+
+	@GetMapping("/capacity/thode")
+	public Integer[] getMethodName() {
+		return scraperClient.getThodeCapacity();
+	}
+	
+
 	@GetMapping("/hours")
 	public HashMap<String, String> libraryhours() {
 		HashMap<String, String> hours = scraperClient.getLibraryHours();

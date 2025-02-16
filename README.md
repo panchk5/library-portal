@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+* Frontend and Backend are implemented. Connection is not established due to budget constraints. 
+
 Link: https://library-portal-ivory.vercel.app/
 
 ## Getting Started
